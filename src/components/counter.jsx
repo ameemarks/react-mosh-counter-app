@@ -2,24 +2,21 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1
+    count: 0,
+    ciasteczko: "p"
   };
 
-//   constructor() {
-//       super();
-//       this.handleIncrement = this.handleIncrement.bind(this);
-//   }
-
-  handleIncrement = () => {
-    console.log("Increment Clicked", this);
-  }
+  handleIncrement = product => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement({id: 1})}
           className="btn bn-secondary btn-sm"
         >
           Increment
