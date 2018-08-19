@@ -10,18 +10,20 @@ class Counter extends Component {
   };
 
   render() {
-    console.log('this.props', this.props)
-
     return (
       <div>
-        {/* Necessary to display children nodes added in parent component */}
-        {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.handleIncrement({id: 1})}
+          onClick={this.handleIncrement}
           className="btn bn-secondary btn-sm"
         >
-          Increment
+         Increment
+        </button>
+        <button
+          onClick={this.props.onDelete}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
       </div>
     );
